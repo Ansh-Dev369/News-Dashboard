@@ -4,6 +4,10 @@ import { useRouter } from "next/navigation";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/lib/firebase";
 import { useSelector } from "react-redux";
+import AuthUIWrapper from "@/components/auth/AuthUIWrapper";
+import AuthHeader from "@/components/auth/AuthHeader";
+import AuthInput from "@/components/auth/AuthInput";
+import AuthButton from "@/components/auth/AuthButton";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -34,22 +38,27 @@ export default function LoginPage() {
   }
 
   return (
-    <div>
-      <h1>Login</h1>
-      <input
+    <AuthUIWrapper>
+      <AuthHeader type="login" />
+      <AuthInput
         type="email"
         placeholder="Email"
         value={email}
+        disabled={loading}
+        required
+        autoFocus
         onChange={(e) => setEmail(e.target.value)}
       />
-      <input
+      <AuthInput
         type="password"
         placeholder="Password"
         value={password}
+        disabled={loading}
+        required
         onChange={(e) => setPassword(e.target.value)}
       />
-      <button onClick={handleLogin}>Login</button>
+      <AuthButton onClick={handleLogin} />
       {error && <p>{error}</p>}
-    </div>
+    </AuthUIWrapper>
   );
 }

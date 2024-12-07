@@ -3,6 +3,10 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/lib/firebase";
+import AuthUIWrapper from "@/components/auth/AuthUIWrapper";
+import AuthHeader from "@/components/auth/AuthHeader";
+import AuthInput from "@/components/auth/AuthInput";
+import AuthButton from "@/components/auth/AuthButton";
 
 export default function SignupPage() {
   const [email, setEmail] = useState("");
@@ -21,22 +25,25 @@ export default function SignupPage() {
   };
 
   return (
-    <div>
-      <h1>Signup</h1>
-      <input
+    <AuthUIWrapper>
+      <AuthHeader type="signup" />
+      <AuthInput
         type="email"
         placeholder="Email"
+        required
+        autoFocus
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
-      <input
+      <AuthInput
         type="password"
         placeholder="Password"
+        required
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <button onClick={handleSignup}>Signup</button>
+      <AuthButton onClick={handleSignup} />
       {error && <p>{error}</p>}
-    </div>
+    </AuthUIWrapper>
   );
 }

@@ -13,6 +13,7 @@ export default function LoginPage() {
   const { user, loading } = useSelector((state) => state.auth);
 
   useEffect(() => {
+    // if the user is not in loading state and the user is authenticated, then redirecting to the dashboard
     if (!loading && user) {
       router.push("/dashboard");
     }
@@ -20,12 +21,14 @@ export default function LoginPage() {
 
   const handleLogin = async () => {
     try {
+      // signing in with email and password using firebase auth
       await signInWithEmailAndPassword(auth, email, password);
     } catch (err) {
       setError(err.message);
     }
   };
 
+  // if the user is loading, then showing a loading indicator
   if (loading || user) {
     return <div>Loading...</div>;
   }

@@ -30,7 +30,7 @@ const HomeLayout = ({ children }) => {
     if (articles?.length === 0) {
       fetchArticles();
     }
-  }, [articles.length, fetchArticles]);
+  }, [articles?.length, fetchArticles]);
 
   if (error) {
     return <div>Unable to Fetch Articles. Please try again later.</div>;

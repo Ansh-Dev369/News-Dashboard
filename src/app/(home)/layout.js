@@ -27,10 +27,8 @@ const HomeLayout = ({ children }) => {
   };
 
   useEffect(() => {
-    if (articles?.length === 0) {
-      fetchArticles();
-    }
-  }, [articles?.length, fetchArticles]);
+    fetchArticles();
+  }, []);
 
   if (error) {
     return <div>Unable to Fetch Articles. Please try again later.</div>;

@@ -38,7 +38,7 @@ export function PayoutTable() {
   }, []);
 
   // Calculating author statistics with custom rates
-  const authorStats = articles.reduce((acc, article) => {
+  const authorStats = articles?.reduce((acc, article) => {
     const author = article.author || "Unknown Author";
 
     if (!acc[author]) {
@@ -65,7 +65,7 @@ export function PayoutTable() {
     }))
     .sort((a, b) => b.totalPay - a.totalPay);
 
-  const totalPayout = authorRows.reduce((sum, row) => sum + row.totalPay, 0);
+  const totalPayout = authorRows?.reduce((sum, row) => sum + row.totalPay, 0);
 
   const handleEditRate = (author, currentRate) => {
     setEditingAuthor(author);

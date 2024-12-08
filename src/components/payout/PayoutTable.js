@@ -58,8 +58,8 @@ export function PayoutTable() {
     return acc;
   }, {});
 
-  const authorRows = Object.entries(authorStats)
-    .map(([author, stats]) => ({
+  const authorRows = Object?.entries(authorStats)
+    ?.map(([author, stats]) => ({
       author,
       ...stats,
     }))

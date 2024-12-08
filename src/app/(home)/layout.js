@@ -12,7 +12,7 @@ const HomeLayout = ({ children }) => {
 
   const fetchArticles = async () => {
     try {
-      if (articles.length > 0) return;
+      if (articles?.length > 0) return;
       dispatch(setLoading(true));
       const response = await fetch(
         `https://newsapi.org/v2/everything?q=bitcoin&apiKey=${process.env.NEXT_PUBLIC_FIREBASE_NEWS_API_KEY}`
@@ -27,7 +27,7 @@ const HomeLayout = ({ children }) => {
   };
 
   useEffect(() => {
-    if (articles.length === 0) {
+    if (articles?.length === 0) {
       fetchArticles();
     }
   }, [articles.length, fetchArticles]);

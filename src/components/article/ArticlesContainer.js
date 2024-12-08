@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import ArticleCard from "./ArticleCard";
 import ArticleSearchBar from "./ArticleSearchBar";
+import ArticleCount from "./ArticleCount";
 
 const ArticlesContainer = () => {
   const { articles, loading } = useSelector((state) => state.news);
@@ -28,6 +29,7 @@ const ArticlesContainer = () => {
   return (
     <div className="p-4 md:p-6 lg:p-8 bg-gray-50">
       <ArticleSearchBar search={search} setSearch={setSearch} />
+      <ArticleCount articlesCount={filteredArticles?.length} />
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6  mx-auto">
         {filteredArticles?.map((article, index) => (
           <ArticleCard key={article.url || index} article={article} />

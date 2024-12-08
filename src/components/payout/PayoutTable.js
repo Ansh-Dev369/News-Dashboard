@@ -15,6 +15,7 @@ import { useState, useEffect } from "react";
 import { Edit2, Check } from "lucide-react";
 
 import { DEFAULT_PAYOUT_RATE } from "./PayoutPrice";
+import PayoutTableExport from "./PayoutTableExport";
 
 export function PayoutTable() {
   const { articles } = useSelector((state) => state.news);
@@ -84,7 +85,8 @@ export function PayoutTable() {
   };
 
   return (
-    <div className="relative max-w-full">
+    <div className="relative max-w-full mt-4">
+      <PayoutTableExport authorRows={authorRows} totalPayout={totalPayout} />
       <div className="overflow-x-auto border rounded-lg">
         <div className="min-w-[600px]">
           <Table>

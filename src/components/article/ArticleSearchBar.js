@@ -7,7 +7,7 @@ const ArticleSearchBar = ({ search, setSearch }) => {
   };
 
   return (
-    <form className="w-full mb-6 mx-auto">
+    <form className="w-full mb-6 mx-auto" onSubmit={(e) => e.preventDefault()}>
       <label
         htmlFor="default-search"
         className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"

@@ -8,7 +8,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 const HomeLayout = ({ children }) => {
   const dispatch = useDispatch();
-  const { articles } = useSelector((state) => state.news);
+  const { articles, error } = useSelector((state) => state.news);
 
   const fetchArticles = async () => {
     try {
@@ -31,6 +31,10 @@ const HomeLayout = ({ children }) => {
       fetchArticles();
     }
   }, [articles.length]);
+
+  if (error) {
+    return <div>Unable to Fetch Articles. Please try again later.</div>;
+  }
 
   return (
     <div>

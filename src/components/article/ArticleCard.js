@@ -1,6 +1,6 @@
 const ArticleCard = ({ article }) => {
   return (
-    <div className="flex flex-col h-full bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden">
+    <div className="flex flex-col h-full bg-white dark:bg-[#010101] rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden">
       <div className="relative w-full pt-[56.25%]">
         <img
           src={
@@ -19,13 +19,13 @@ const ArticleCard = ({ article }) => {
             {article.source?.name || "Unknown Source"}
           </span>
           {article.author && (
-            <span className="text-xs text-gray-500 truncate max-w-[200px]">
+            <span className="text-xs text-gray-500 dark:text-gray-300 truncate max-w-[200px]">
               by {article.author}
             </span>
           )}
         </div>
 
-        <h3 className="font-semibold text-lg leading-tight line-clamp-2 min-h-[3.5rem]">
+        <h3 className="font-semibold text-lg leading-tight dark:text-white line-clamp-2 min-h-[2.5rem]">
           {article.title}
         </h3>
 

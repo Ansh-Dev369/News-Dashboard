@@ -1,5 +1,6 @@
 "use client";
 
+import FullScreenLoader from "@/components/FullScreenLoader";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
@@ -16,5 +17,5 @@ export default function Home() {
   }, [user, loading, router]);
 
   // if the user is loading, then showing a loading indicator
-  return <div>Loading...</div>;
+  return <FullScreenLoader />;
 }

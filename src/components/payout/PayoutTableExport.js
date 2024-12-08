@@ -65,7 +65,7 @@ const PayoutTableExport = ({ authorRows, totalPayout }) => {
 
   return (
     <div className="flex justify-end w-full mb-4">
-      <div className="flex gap-2 items-center">
+      <div className="flex gap-2 items-center dark:text-white">
         <p>Export: </p>
         <Button variant="outline" size="sm" onClick={exportToCSV}>
           CSV

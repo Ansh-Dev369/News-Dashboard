@@ -85,7 +85,7 @@ export function PayoutTable() {
   };
 
   return (
-    <div className="relative max-w-full mt-4">
+    <div className="relative max-w-full mt-4 dark:text-white">
       <PayoutTableExport authorRows={authorRows} totalPayout={totalPayout} />
       <div className="overflow-x-auto border rounded-lg">
         <div className="min-w-[600px]">
@@ -122,12 +122,12 @@ export function PayoutTable() {
                             onChange={(e) =>
                               setEditRate(Number(e.target.value))
                             }
-                            className="w-20 px-2 py-1 border rounded"
+                            className="w-20 px-2 py-1 border rounded "
                             min="0"
                           />
                           <button
                             onClick={() => handleSaveRate(row.author)}
-                            className="p-1 hover:bg-gray-100 rounded"
+                            className="p-1 hover:bg-gray-100 dark:hover:bg-gray-800 rounded"
                           >
                             <Check className="w-4 h-4" />
                           </button>
@@ -139,7 +139,7 @@ export function PayoutTable() {
                             onClick={() =>
                               handleEditRate(row.author, row.payoutRate)
                             }
-                            className="p-1 hover:bg-gray-100 rounded"
+                            className="p-1 hover:bg-gray-100 dark:hover:bg-gray-800 rounded"
                           >
                             <Edit2 className="w-4 h-4" />
                           </button>

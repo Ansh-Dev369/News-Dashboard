@@ -2,6 +2,7 @@
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
+import FullScreenLoader from "./FullScreenLoader";
 
 export default function ProtectedRoute({ children }) {
   const { user, loading } = useSelector((state) => state.auth);
@@ -15,7 +16,7 @@ export default function ProtectedRoute({ children }) {
   }, [user, loading, router]);
 
   // if the user is loading, then showing a loading indicator
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <FullScreenLoader />;
 
   // if the user is authenticated, then rendering the children
   return user ? children : null;

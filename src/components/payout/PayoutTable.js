@@ -122,7 +122,7 @@ export function PayoutTable() {
                             onChange={(e) =>
                               setEditRate(Number(e.target.value))
                             }
-                            className="w-20 px-2 py-1 border rounded "
+                            className="w-20 px-2 py-1 border rounded dark:text-black "
                             min="0"
                           />
                           <button
